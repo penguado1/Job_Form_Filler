@@ -1,22 +1,22 @@
 import javax.swing.*;
-
+import javax.swing.border.*;
+import net.miginfocom.swing.MigLayout;
 import java.awt.*;
 
-public class signIn extends JPanel {
-    private JPanel North;
-    private JLabel label;
+public class signIn extends Login{
+    
 
     signIn(){
-        BorderLayout layout = new BorderLayout();
-        setLayout(layout);
+        super();
 
-        North = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        North.setBackground(Color.BLUE);
-        add(North, BorderLayout.NORTH);
+        createSignInPage();
+    }
 
-        label = new JLabel("Please sign in");
-        North.add(label);
-        label.setPreferredSize(new Dimension(200, 100));
+    private void createSignInPage(){
+        userName();
 
+        passWord();
+
+        loginButton("Sign in");
     }
 }
