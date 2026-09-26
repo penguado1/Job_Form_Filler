@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class loginMenu extends JPanel{
 
-    private CardLayout cLogin;
+    private static CardLayout cLogin;
 
     private signUp signUpPage;
     private signIn signInPage;
@@ -12,8 +12,7 @@ public class loginMenu extends JPanel{
     private final String SIGNUP = "signUp";
     private final String SIGNIN = "singIn";
 
-    loginMenu(){
-
+    loginMenu(JFrame frame){
         setupPanel();
     }
 
@@ -23,11 +22,15 @@ public class loginMenu extends JPanel{
 
         this.setLayout(cLogin);
 
-        signUpPage = new signUp();
-        signInPage = new signIn();
+        signUpPage = new signUp(this);
+        signInPage = new signIn(this);
 
         this.add(signUpPage, SIGNUP);
         this.add(signInPage, SIGNIN);
 
+    }
+
+    public static void showNextCard(JPanel parent){
+        cLogin.next(parent);
     }
 }

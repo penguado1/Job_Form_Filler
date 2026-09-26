@@ -12,7 +12,7 @@ public class Initialise{
         frame1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame1.setSize(800, 600);
 
-        loginMenu = new loginMenu();
+        loginMenu = new loginMenu(frame1);
         frame1.add(loginMenu, BorderLayout.CENTER);
 
 

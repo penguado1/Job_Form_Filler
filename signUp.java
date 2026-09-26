@@ -9,11 +9,13 @@ public class signUp extends Login implements ActionListener{
     private JLabel repeatLabel;
     private JPasswordField repeatPassword;
     private JSeparator passWordSeparator;
-    private JButton createAccount;
+    private JButton havAccountButton;
+    
+    private JPanel parent;
 
-    signUp(){
+    signUp(JPanel parent){
         super();
-
+        this.parent = parent;
         this.createSignUpPage();
     }
 
@@ -28,7 +30,7 @@ public class signUp extends Login implements ActionListener{
 
         finalSpearator();
 
-        createAnAccount();
+        alreadyHavAccount();
 
         loginButton("Sign up");
     }
@@ -42,24 +44,27 @@ public class signUp extends Login implements ActionListener{
         addComponent(repeatLabel, "skip 1");
         addComponent(repeatPassword);
     }
+ 
+     private void alreadyHavAccount(){
+        havAccountButton = new JButton("Already have an account?");
+        havAccountButton.setFont(new Font("Ariel", Font.ITALIC, 13));
+        havAccountButton.setForeground(Color.BLUE);
+        havAccountButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-    private void createAnAccount(){
-        createAccount = new JButton("Already have an account?");
-        createAccount.setFont(new Font("Ariel", Font.ITALIC, 13));
-        createAccount.setForeground(Color.BLUE);
-        createAccount.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        havAccountButton.setBorderPainted(false);
+        havAccountButton.setContentAreaFilled(false);
+        havAccountButton.setFocusPainted(false);
+        havAccountButton.setOpaque(false);
 
-        createAccount.setBorderPainted(false);
-        createAccount.setContentAreaFilled(false);
-        createAccount.setFocusPainted(false);
-        createAccount.setOpaque(false);
-
-        addComponent(createAccount);
-    }   
+        addComponent(havAccountButton);
+        havAccountButton.addActionListener(this);
+    } 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if(e.getSource() == havAccountButton){
+            loginMenu.showNextCard(parent);
+        }
+        
     }
 }

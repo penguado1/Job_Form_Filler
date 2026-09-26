@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.SpringLayout.Constraints;
 import javax.swing.border.*;
 import net.miginfocom.swing.MigLayout;
 import java.awt.*;
@@ -14,6 +15,12 @@ public class Login extends JPanel{
     private JButton signButton;
     private JSeparator loginSeparator;
     private JSeparator userNameSeparator;
+
+    private Border Empty;
+    private Border Line;
+    private Border compound;
+
+    private MigLayout detailLayout;
 
     Login(){
         BorderLayout layout = new BorderLayout();
@@ -33,16 +40,16 @@ public class Login extends JPanel{
 
 
     private void signInDetials(){
+        detailLayout = new MigLayout("wrap, CENTER", "[right]20[]40", "70[]10[]");
 
-        Details = new JPanel(new MigLayout("wrap, CENTER", "[right]20[]40", "70[]10[]"));
+        Details = new JPanel(detailLayout);
 
-        Border Empty = BorderFactory.createEmptyBorder(40, 140, 80, 140);
-        Border Line = BorderFactory.createLineBorder(Color.GRAY, 2);
-        Border compound = BorderFactory.createCompoundBorder(Empty, Line);
+        Empty = BorderFactory.createEmptyBorder(40, 140, 80, 140);
+        Line = BorderFactory.createLineBorder(Color.GRAY, 2);
+        compound = BorderFactory.createCompoundBorder(Empty, Line);
 
         Details.setBorder(compound);
         add(Details, BorderLayout.CENTER);
-
     }
 
     protected void userName(){
@@ -100,5 +107,13 @@ public class Login extends JPanel{
 
     protected void addComponent(JComponent component, String string){
         Details.add(component, string);
+    }
+
+    protected void setRowCon(String Constraints){
+        detailLayout.setRowConstraints(Constraints);
+    }
+
+    protected void setColCons(String Constraints){
+        detailLayout.setColumnConstraints(Constraints);
     }
 }
