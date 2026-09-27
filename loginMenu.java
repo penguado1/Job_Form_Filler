@@ -1,4 +1,5 @@
 import java.awt.CardLayout;
+import java.util.HashMap;
 
 import javax.swing.*;
 
@@ -12,7 +13,10 @@ public class loginMenu extends JPanel{
     private final String SIGNUP = "signUp";
     private final String SIGNIN = "singIn";
 
-    loginMenu(JFrame frame){
+    private HashMap <String,String> loginInfo;
+
+    loginMenu(HashMap <String,String> loginInfo){
+        this.loginInfo = loginInfo; 
         setupPanel();
     }
 
@@ -22,8 +26,8 @@ public class loginMenu extends JPanel{
 
         this.setLayout(cLogin);
 
-        signUpPage = new signUp(this);
-        signInPage = new signIn(this);
+        signUpPage = new signUp(this, loginInfo);
+        signInPage = new signIn(this, loginInfo);
 
         this.add(signUpPage, SIGNUP);
         this.add(signInPage, SIGNIN);

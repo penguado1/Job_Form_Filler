@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.SpringLayout.Constraints;
 import javax.swing.border.*;
 import net.miginfocom.swing.MigLayout;
 import java.awt.*;
@@ -12,7 +11,7 @@ public class Login extends JPanel{
     private JTextField userText;
     private JLabel passLabel;
     private JPasswordField passField;
-    private JButton signButton;
+    protected JButton signButton;
     private JSeparator loginSeparator;
     private JSeparator userNameSeparator;
 
@@ -115,5 +114,13 @@ public class Login extends JPanel{
 
     protected void setColCons(String Constraints){
         detailLayout.setColumnConstraints(Constraints);
+    }
+
+    protected String getUserName(){
+        return userText.getText();
+    }
+
+    protected String getUserPass(){
+        return String.valueOf(passField.getPassword());
     }
 }

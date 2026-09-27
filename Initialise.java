@@ -4,19 +4,34 @@ import javax.swing.*;
 
 public class Initialise{
 
-    private JFrame frame1;
+    private static JFrame loginFrame;
     private loginMenu loginMenu;
+    private IdandPasswords loginInfo;
+    private static UserFrame userInterface;
 
     Initialise(){
-        frame1 = new JFrame("FFY");
-        frame1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame1.setSize(800, 600);
-
-        loginMenu = new loginMenu(frame1);
-        frame1.add(loginMenu, BorderLayout.CENTER);
-
-
-        frame1.setVisible(true);
+        createLogin();
     }
 
+    private void createLogin(){
+        loginFrame = new JFrame("FFY");
+        loginFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        loginFrame.setSize(800, 600);
+
+        loginInfo = new IdandPasswords();
+
+        loginMenu = new loginMenu(loginInfo.getLogininfo());
+        loginFrame.add(loginMenu, BorderLayout.CENTER);
+
+
+        loginFrame.setVisible(true);
+    }
+
+    public static void userInterface(){
+        userInterface = new UserFrame();
+    }
+
+    public static void disposeFrame(){
+        loginFrame.dispose();
+    }
 }

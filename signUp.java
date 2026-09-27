@@ -4,6 +4,7 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 public class signUp extends Login implements ActionListener{
     private JLabel repeatLabel;
@@ -13,8 +14,13 @@ public class signUp extends Login implements ActionListener{
     
     private JPanel parent;
 
-    signUp(JPanel parent){
+    private HashMap <String,String> loginInfo;
+
+    signUp(JPanel parent, HashMap <String,String> loginInfo){
         super();
+
+        this.loginInfo = loginInfo;
+
         this.parent = parent;
         this.createSignUpPage();
     }
