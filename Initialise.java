@@ -10,7 +10,7 @@ public class Initialise{
     private static UserFrame userInterface;
 
     Initialise(){
-        createLogin();
+        userInterface();
     }
 
     private void createLogin(){

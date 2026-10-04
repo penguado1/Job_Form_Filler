@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.*;
-import net.miginfocom.swing.MigLayout;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

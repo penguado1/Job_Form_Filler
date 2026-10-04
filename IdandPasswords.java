@@ -12,7 +12,7 @@ public class IdandPasswords {
 
     }
 
-    protected HashMap getLogininfo() {
+    protected HashMap <String,String> getLogininfo() {
         return logininfo;
     }
 }
